@@ -52,12 +52,7 @@ Restart or toggle the MCP server in **Cursor Settings → MCP** to apply.
 
 ### Setup
 
-1. Copy `.env.example` to `.env` and fill in values:
-   ```bash
-   cp .env.example .env
-   ```
-
-2. Set up Google Cloud credentials:
+1. Set up Google Cloud credentials:
    - **Enable the Calendar API:** https://console.cloud.google.com/apis/library/calendar-json.googleapis.com
    - **Create OAuth 2.0 credentials:** https://console.cloud.google.com/apis/credentials
      - Click **Create Credentials → OAuth client ID**
@@ -65,12 +60,12 @@ Restart or toggle the MCP server in **Cursor Settings → MCP** to apply.
      - Add `http://localhost:8000/oauth2callback` as an Authorized redirect URI
      - Download the JSON and save it as `credentials/client_secrets.json`
 
-3. Start the server:
+2. Start the server:
    ```bash
    docker compose up --build
    ```
 
-4. Authenticate with Google by visiting:
+3. Authenticate with Google by visiting:
    ```
    http://localhost:8000/login
    ```
