@@ -1,7 +1,51 @@
 # MCP Servers
 
-This repo contains a Google Calendar MCP server and documents the Playwright MCP setup with browser VNC support.
+This repo contains a Google Calendar MCP server
 
+---
+
+## Playwright MCP (with VNC browser display)
+
+Uses the [`pranavgade20/browser-sandbox`](https://hub.docker.com/r/pranavgade20/browser-sandbox) image — a pre-built Playwright MCP server with noVNC support. No custom Dockerfile needed.
+
+### Run
+
+```bash
+docker run -d --name playwright-mcp \
+  -p 8931:8931 \
+  -p 6080:6080 \
+  pranavgade20/browser-sandbox
+```
+
+| Port | Purpose |
+|------|---------|
+| `8931` | Playwright MCP SSE endpoint |
+| `6080` | noVNC web viewer |
+
+### View the browser
+
+Open in your browser:
+```
+http://localhost:6080/vnc.html
+```
+
+Click **Connect** to watch browser automation live.
+
+### Cursor MCP Config
+
+Add to `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "playwright": {
+      "url": "http://localhost:8931/sse"
+    }
+  }
+}
+```
+
+Restart or toggle the MCP server in **Cursor Settings → MCP** to apply.
 ---
 
 ## Google Calendar MCP
@@ -50,48 +94,6 @@ Add to `~/.cursor/mcp.json`:
 
 ---
 
-## Playwright MCP (with VNC browser display)
-
-Uses the [`pranavgade20/browser-sandbox`](https://hub.docker.com/r/pranavgade20/browser-sandbox) image — a pre-built Playwright MCP server with noVNC support. No custom Dockerfile needed.
-
-### Run
-
-```bash
-docker run -d --name playwright-mcp \
-  -p 8931:8931 \
-  -p 6080:6080 \
-  pranavgade20/browser-sandbox
-```
-
-| Port | Purpose |
-|------|---------|
-| `8931` | Playwright MCP SSE endpoint |
-| `6080` | noVNC web viewer |
-
-### View the browser
-
-Open in your browser:
-```
-http://localhost:6080/vnc.html
-```
-
-Click **Connect** to watch browser automation live.
-
-### Cursor MCP Config
-
-Add to `~/.cursor/mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "playwright": {
-      "url": "http://localhost:8931/sse"
-    }
-  }
-}
-```
-
-Restart or toggle the MCP server in **Cursor Settings → MCP** to apply.
 
 ---
 
