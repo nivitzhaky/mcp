@@ -1,0 +1,13 @@
+.env
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+credentials/token.pickle
+credentials/client_secrets.json
+.pytest_cache/
+.coverage
+htmlcov/
