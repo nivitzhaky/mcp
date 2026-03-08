@@ -85,30 +85,7 @@ Add to `~/.cursor/mcp.json`:
     "google-calendar": {
       "url": "http://localhost:8000/sse",
       "headers": {
-        "Authorization": "Bearer <your-MCP_API_KEY-from-.env>"
-      }
-    }
-  }
-}
-```
-
----
-
-
----
-
-## Combined `~/.cursor/mcp.json`
-
-```json
-{
-  "mcpServers": {
-    "playwright": {
-      "url": "http://localhost:8931/sse"
-    },
-    "google-calendar": {
-      "url": "http://localhost:8000/sse",
-      "headers": {
-        "Authorization": "Bearer <your-MCP_API_KEY-from-.env>"
+        "Authorization": "Bearer SECURE_API_KEY_HERE"
       }
     }
   }
