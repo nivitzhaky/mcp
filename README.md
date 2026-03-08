@@ -11,7 +11,7 @@ Uses the [`pranavgade20/browser-sandbox`](https://hub.docker.com/r/pranavgade20/
 ### Run
 
 ```bash
-docker run  \
+docker run -d  \
   -p 8931:8931 \
   -p 6080:6080 \
   pranavgade20/browser-sandbox
